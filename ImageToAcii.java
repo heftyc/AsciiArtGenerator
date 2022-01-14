@@ -5,7 +5,6 @@ import java.io.IOException;
 
 public class ImageToAscii {
 
-    static final String fileName = "meFinal2.jpg";
     static final char[] ascii = {' ', '.', ',', ':', '+', '=', '*', '#', '&', '%', '$', '@'};
 
     static int resX = 180;
@@ -34,11 +33,8 @@ public class ImageToAscii {
                 int blue = (colors & 0x000000ff);
                 int darkness = (red + green + blue) / 3;
                 int normalizedDarkness = (darkness * (ascii.length - 1)) / 0xff;
-                //int darkness = (int) ((((colors & 0x00ff0000) >> 16) + ((colors & 0x0000ff00) >> 8) + colors & 0x000000ff) / 3 * (22.0 / 0xff));
-                if (normalizedDarkness > ascii.length - 1)
-                    System.out.print(normalizedDarkness);
-                else
-                    System.out.print(ascii[normalizedDarkness]);
+              
+                System.out.print(ascii[normalizedDarkness]);
             }
             System.out.println();
         }
